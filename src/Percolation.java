@@ -1,11 +1,14 @@
+import lib.lection.QuickFindUF;
 import lib.lection.QuickUnionUF;
+import lib.lection.WeightedQuickUnionUF;
 
 public class Percolation { 
 
 private boolean [] grid;	
 private int openedCount;	
 private int sizeMarix;
-private QuickUnionUF uf;
+private WeightedQuickUnionUF uf;
+
 public Percolation(int N) {
 // створюємо матрицю N-на-N, з усіма заблокованими об’єктами 
 	openedCount = 0;
@@ -14,7 +17,7 @@ public Percolation(int N) {
 	for (int i = 0; i < grid.length; i++) {
 		grid[i] = false;
 	}
-	uf = new QuickUnionUF(N*N+2);
+	uf = new WeightedQuickUnionUF(N*N+2);
 	for (int i = 0; i < N; i++) {
 		uf.union(0,i+1);
 		uf.union(N*N-i, N*N+1);
@@ -35,10 +38,6 @@ public void open(int i, int j) {
 	openedCount++;
 	grid[sizeMarix*i+j]=true;
 	} 
-		
-	
-	
-	
 }
 public boolean isOpened(int i, int j) {
 	// чи відкитий об’єкт (row i, column j)? 
