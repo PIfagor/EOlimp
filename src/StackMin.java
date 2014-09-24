@@ -17,7 +17,7 @@ public class StackMin {
 	 *    Технічні умови:
 	 *   	Вхідні дані:
 	 *   		Вхідні дані генеруються у самій програмі. На вхід подаються параметри для генерації вхідної послідовності.
-	 *   	Перше число містить кількість операцій n (1 ≤ n ≤ 106) зі стеком.
+	 *   	Перше число містить кількість операцій n (1 ≤ n ≤ 10^6) зі стеком.
 	 *    Далі йдуть чотири невід'ємних цілих числа a, b, c, x0, що не перевищують 10000.
 	 *    Для отримання вхідних даних згенеруємо послідовність x.
 	 *    Перше число у генерованій послідовності x1.
@@ -41,10 +41,12 @@ public class StackMin {
 	{
 		Integer sum = 0;
 		int xi = 0;
+		int min = 0;
+		
 		Stack st = new Stack<Integer>();
 		for (int i = 0; i < n; i++) {
-			xi = ((a*x0*x0-b*x0+c)/100)%1000000;
-			System.out.println(xi);
+			xi = ((a*x0*x0+b*x0+c)/100)%1000000;
+			//System.out.println(xi);
 			if (xi%5<2) {
 				if(!st.empty())
 					st.pop();
@@ -52,12 +54,19 @@ public class StackMin {
 			{
 				st.push(xi);
 			}
+			if(!st.empty())
+			{
+				for (int j = 0; j < st.size(); j++) {
+					if (min<(Integer)st.get(i)) {
+						min=(Integer)st.get(i);
+						sum+=min;
+					}
+				}
+				
+			}
 			x0=xi;
 		}
-	    while(!st.empty())
-	    {
-	    	sum += (Integer)st.pop();
-	    }
+	   
 		return sum;
 	}
 	
