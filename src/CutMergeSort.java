@@ -61,7 +61,7 @@ public class CutMergeSort {
 			System.out.print(arr[i]);
 			System.out.println("\t" + arr2[i]);
 		}
-
+		
 	}
 
 }
