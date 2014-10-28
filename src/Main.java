@@ -95,7 +95,7 @@ public class Main {
 				for (int j=0;j<m;++j ) {
 					out.println(data[j]);
 				}
-				//if(i<total-1)
+				if(i<total-1)
 				out.println();
 			}
            out.flush();

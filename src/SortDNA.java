@@ -77,6 +77,7 @@ public class SortDNA {
 		return arr;
 	}
 	public static void main(String[] args) {
+		
 		System.out.println(inversion("DAABEC"));
 		String [] first = new String [] {"AACATGAAGG",
 				"TTTTGGCCAA",
